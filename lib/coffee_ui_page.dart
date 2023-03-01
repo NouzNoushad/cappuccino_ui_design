@@ -1,6 +1,8 @@
 import 'package:coffee_ui/cappuccino_list.dart';
 import 'package:flutter/material.dart';
 
+import 'cappuccino_details.dart';
+
 class CoffeeUI extends StatefulWidget {
   const CoffeeUI({super.key});
 
@@ -275,14 +277,23 @@ class CappuccinoTab extends StatelessWidget {
                   children: [
                     Stack(
                       children: [
-                        Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                              image:
-                                  AssetImage('assets/${cappuccino['image']}'),
-                              fit: BoxFit.cover,
+                        GestureDetector(
+                          onTap: () {
+                            // navigates to details page
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => CappuccinoDetails(cappuccino: cappuccino,)),
+                            );
+                          },
+                          child: Container(
+                            height: 130,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('assets/${cappuccino['image']}'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
