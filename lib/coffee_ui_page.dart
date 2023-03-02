@@ -1,6 +1,7 @@
 import 'package:coffee_ui/cappuccino_list.dart';
 import 'package:flutter/material.dart';
 
+import 'cappuccino_cart.dart';
 import 'cappuccino_details.dart';
 
 class CoffeeUI extends StatefulWidget {
@@ -18,15 +19,7 @@ class _CoffeeUIState extends State<CoffeeUI> {
       case 0:
         return const CoffeeHomePage();
       case 1:
-        return const Center(
-          child: Text(
-            'Shopping',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-            ),
-          ),
-        );
+        return const CoffeeCart();
       case 2:
         return const Center(
           child: Text(
@@ -282,7 +275,9 @@ class CappuccinoTab extends StatelessWidget {
                             // navigates to details page
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (context) => CappuccinoDetails(cappuccino: cappuccino,)),
+                                  builder: (context) => CappuccinoDetails(
+                                        cappuccino: cappuccino,
+                                      )),
                             );
                           },
                           child: Container(
